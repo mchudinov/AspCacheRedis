@@ -8,13 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("AspCacheRedis")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("
-
-            ")]
+[assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("AspCacheRedis")]
-[assembly: AssemblyCopyright("Copyright © 
-
-             2017")]
+[assembly: AssemblyCopyright("Copyright © 2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
