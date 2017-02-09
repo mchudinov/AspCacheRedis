@@ -8,11 +8,14 @@ namespace AspCacheRedis
         {
             var cache = new HttpCache();
             cache.Set("key1","Hello!");
-            string str = cache.Get<string>("key1");
+            str1.InnerHtml = cache.Get<string>("key1");
 
             var redis = new CacheManagerCache();
             redis.Set("key2","Hello2!");
-            string str2 = redis.Get<string>("key2");
+            str2.InnerHtml = redis.Get<string>("key2");
+
+            Session["cache"] = "Cahe in Redis!";
+            str3.InnerHtml = Session["cache"].ToString();
         }
     }
 }
