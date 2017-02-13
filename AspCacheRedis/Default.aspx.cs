@@ -14,7 +14,7 @@ namespace AspCacheRedis
             redis.Set("key2","Hello2!");
             str2.InnerHtml = redis.Get<string>("key2");
 
-            Session["cache"] = "Cahe in Redis!";
+            Session["cache"] = "Cache in Redis!";
             str3.InnerHtml = Session["cache"].ToString();
         }
     }
