@@ -1,7 +1,7 @@
 ﻿using System;
 using CacheManager.Core;
 
-namespace AspCacheRedis
+namespace Cache
 {
     public class CacheManagerCache : CacheProvider<ICacheManager<object>>
     {    

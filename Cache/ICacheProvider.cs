@@ -1,4 +1,4 @@
-﻿namespace AspCacheRedis
+﻿namespace Cache
 {
     public interface ICacheProvider
     {

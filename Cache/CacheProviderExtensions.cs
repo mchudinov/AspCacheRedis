@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-namespace AspCacheRedis
+namespace Cache
 {
     public static class CacheProviderExtensions
     {

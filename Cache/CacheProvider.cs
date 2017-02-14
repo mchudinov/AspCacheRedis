@@ -1,6 +1,6 @@
 ﻿using System.Configuration;
 
-namespace AspCacheRedis
+namespace Cache
 {
     public abstract class CacheProvider<TCache> : ICacheProvider
     {

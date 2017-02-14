@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Web;
 
-namespace AspCacheRedis
+namespace Cache
 {
     public class HttpCache : CacheProvider<System.Web.Caching.Cache>
     {
