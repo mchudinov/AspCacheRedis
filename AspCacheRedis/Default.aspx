@@ -15,7 +15,7 @@
                 <br/>
                 <label id="str4" runat="server"></label>
                 <br/>
-                Refresh page to run WebAPI request.
+                Refresh page to call WebAPI.
                 <br/>
             </div>
         </form>
