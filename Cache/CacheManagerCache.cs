@@ -7,7 +7,7 @@ namespace Cache
     {    
         protected override ICacheManager<object> InitCache()
         {
-            var cache = CacheFactory.FromConfiguration<object>("Memory");
+            var cache = CacheFactory.FromConfiguration<object>("Redis");
             return cache;
         }
 
