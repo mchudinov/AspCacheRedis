@@ -13,6 +13,10 @@
                 <br/>
                 <label id="str3" runat="server"></label>
                 <br/>
+                <label id="str4" runat="server"></label>
+                <br/>
+                Refresh page to run WebAPI request.
+                <br/>
             </div>
         </form>
     </body>

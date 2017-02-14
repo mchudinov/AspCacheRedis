@@ -1,9 +1,16 @@
 ﻿using System;
+using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
 
 namespace AspCacheRedis
 {
     public partial class Default : System.Web.UI.Page
     {
+        static readonly HttpClient Client = new HttpClient();
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             var cache = new HttpCache();
@@ -16,6 +23,9 @@ namespace AspCacheRedis
 
             Session["cache"] = "Cache in Redis!";
             str3.InnerHtml = Session["cache"].ToString();
+
+            var client = new WebClient();
+            str4.InnerHtml = client.DownloadString("http://localhost:8080/api/Cache");
         }
     }
 }
