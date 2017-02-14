@@ -34,12 +34,24 @@
       <HintPath>..\packages\CacheManager.Core.0.9.3\lib\net45\CacheManager.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="CacheManager.Serialization.Json, Version=0.9.3.0, Culture=neutral, PublicKeyToken=5b450b4fb65c4cdb, processorArchitecture=MSIL">
+      <HintPath>..\packages\CacheManager.Serialization.Json.0.9.3\lib\net45\CacheManager.Serialization.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="CacheManager.StackExchange.Redis, Version=0.9.3.0, Culture=neutral, PublicKeyToken=5b450b4fb65c4cdb, processorArchitecture=MSIL">
       <HintPath>..\packages\CacheManager.StackExchange.Redis.0.9.3\lib\net45\CacheManager.StackExchange.Redis.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="CacheManager.SystemRuntimeCaching, Version=0.9.3.0, Culture=neutral, PublicKeyToken=5b450b4fb65c4cdb, processorArchitecture=MSIL">
       <HintPath>..\packages\CacheManager.SystemRuntimeCaching.0.9.3\lib\net45\CacheManager.SystemRuntimeCaching.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Web.RedisSessionStateProvider, Version=2.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.RedisSessionStateProvider.2.2.2\lib\net40\Microsoft.Web.RedisSessionStateProvider.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="StackExchange.Redis.StrongName, Version=1.2.0.0, Culture=neutral, PublicKeyToken=c219ff1ca8c2ce46, processorArchitecture=MSIL">
@@ -63,11 +75,13 @@
     <Compile Include="CacheManagerCache.cs" />
     <Compile Include="CacheProvider.cs" />
     <Compile Include="CacheProviderExtensions.cs" />
+    <Compile Include="JsonSerializer.cs" />
     <Compile Include="HttpCache.cs" />
     <Compile Include="ICacheProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

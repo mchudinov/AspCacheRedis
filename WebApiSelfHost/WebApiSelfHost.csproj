@@ -37,6 +37,10 @@
       <HintPath>..\packages\CacheManager.Core.0.9.3\lib\net45\CacheManager.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="CacheManager.Serialization.Json, Version=0.9.3.0, Culture=neutral, PublicKeyToken=5b450b4fb65c4cdb, processorArchitecture=MSIL">
+      <HintPath>..\packages\CacheManager.Serialization.Json.0.9.3\lib\net45\CacheManager.Serialization.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="CacheManager.StackExchange.Redis, Version=0.9.3.0, Culture=neutral, PublicKeyToken=5b450b4fb65c4cdb, processorArchitecture=MSIL">
       <HintPath>..\packages\CacheManager.StackExchange.Redis.0.9.3\lib\net45\CacheManager.StackExchange.Redis.dll</HintPath>
       <Private>True</Private>

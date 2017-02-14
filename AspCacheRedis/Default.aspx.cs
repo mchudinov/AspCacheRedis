@@ -16,11 +16,21 @@ namespace AspCacheRedis
             cacheManagerCache.Set("key2","Hello2!");
             str2.InnerHtml = cacheManagerCache.Get<string>("key2");
 
+            //cacheManagerCache.Set("key3", new Widget());
+
             Session["cache"] = "Cache in Redis!";
             str3.InnerHtml = Session["cache"].ToString();
+
+            Session["widget"] = new Widget {Number = 99, Name = "Test99"};
 
             var client = new WebClient();
             str4.InnerHtml = client.DownloadString("http://localhost:8080/api/Cache");
         }
+    }
+
+    internal class Widget
+    {
+        public int Number { get; set; }
+        public string Name { get; set; }
     }
 }
