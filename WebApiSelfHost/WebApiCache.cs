@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using WebApi.OutputCache.Core.Cache;
 
 namespace WebApiSelfHost
@@ -7,10 +8,15 @@ namespace WebApiSelfHost
     internal class WebApiCache : IApiOutputCache
     {
         private static readonly Cache.ICacheProvider CacheManagerCache = new Cache.CacheManagerCache();
+        private static readonly IList<string>Keys = new List<string>();
 
         public void RemoveStartsWith(string key)
         {
-            throw new NotImplementedException();
+            IList<string> keys = Keys.Where(k => k.StartsWith(key)).ToList();
+            foreach (var k in keys)
+            {
+                Remove(k);
+            }            
         }
 
         public T Get<T>(string key) where T : class
@@ -26,6 +32,7 @@ namespace WebApiSelfHost
 
         public void Remove(string key)
         {
+            Keys.Remove(key);
             CacheManagerCache.Remove(key);
         }
 
@@ -36,13 +43,10 @@ namespace WebApiSelfHost
 
         public void Add(string key, object o, DateTimeOffset expiration, string dependsOnKey = null)
         {
+            Keys.Add(key);
             CacheManagerCache.Set(key, o, expiration);
         }
 
-        public IEnumerable<string> AllKeys { get
-            {
-                throw new NotImplementedException();
-            }
-        }
+        public IEnumerable<string> AllKeys => Keys;
     }
 }
