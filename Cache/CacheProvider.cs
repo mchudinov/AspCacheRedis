@@ -1,4 +1,5 @@
-﻿using System.Configuration;
+﻿using System;
+using System.Configuration;
 
 namespace Cache
 {
@@ -31,6 +32,10 @@ namespace Cache
         public abstract void Set<T>(string key, T value, int duration);
 
         public abstract void SetSliding<T>(string key, T value, int duration);
+
+        public abstract void Set<T>(string key, T value, DateTimeOffset expiration);
+
+        public abstract bool Exists(string key);
 
         public abstract void Remove(string key);
     }

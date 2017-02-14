@@ -1,5 +1,6 @@
 ﻿using System.Web.Http;
 using Owin;
+using WebApi.OutputCache.V2;
 
 namespace WebApiSelfHost
 {
@@ -13,6 +14,9 @@ namespace WebApiSelfHost
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            var cache = new WebApiCache();
+            config.CacheOutputConfiguration().RegisterCacheOutputProvider(() => cache);
 
             app.UseWebApi(config);
         }

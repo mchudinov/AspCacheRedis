@@ -7,7 +7,7 @@ namespace Cache
     {    
         protected override ICacheManager<object> InitCache()
         {
-            var cache = CacheFactory.FromConfiguration<object>("Redis");
+            var cache = CacheFactory.FromConfiguration<object>("Memory");
             return cache;
         }
 
@@ -38,6 +38,17 @@ namespace Cache
         {
             Cache.Add(KeyPrefix+key, value);
             Cache.Expire(KeyPrefix+key, new TimeSpan(0, duration, 0));
+        }
+
+        public override void Set<T>(string key, T value, DateTimeOffset expiration)
+        {
+            Cache.Add(KeyPrefix + key, value);
+            Cache.Expire(KeyPrefix + key, expiration);
+        }
+
+        public override bool Exists(string key)
+        {
+            return Cache.Exists(key);
         }
 
         public override void Remove(string key)

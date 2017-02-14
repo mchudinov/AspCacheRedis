@@ -47,6 +47,21 @@ namespace Cache
                 System.Web.Caching.Cache.NoSlidingExpiration);
         }
 
+        public override void Set<T>(string key, T value, DateTimeOffset expiration)
+        {
+            Cache.Insert(
+                KeyPrefix + key,
+                value,
+                null,
+                expiration.DateTime, 
+                System.Web.Caching.Cache.NoSlidingExpiration);
+        }
+
+        public override bool Exists(string key)
+        {
+            return Cache[key] != null;
+        }
+
         public override void Set<T>(string key, T value, int duration)
         {
             Cache.Insert(

@@ -1,21 +1,18 @@
 ﻿using System;
 using System.Net;
 using System.Net.Http;
-using Cache;
 
 namespace AspCacheRedis
 {
     public partial class Default : System.Web.UI.Page
     {
-        static readonly HttpClient Client = new HttpClient();
-        
         protected void Page_Load(object sender, EventArgs e)
         {
-            var cache = new Cache.HttpCache();
+            Cache.ICacheProvider cache = new Cache.HttpCache();
             cache.Set("key1","Hello!");
             str1.InnerHtml = cache.Get<string>("key1");
 
-            var cacheManagerCache = new CacheManagerCache();
+            Cache.ICacheProvider cacheManagerCache = new Cache.CacheManagerCache();
             cacheManagerCache.Set("key2","Hello2!");
             str2.InnerHtml = cacheManagerCache.Get<string>("key2");
 
