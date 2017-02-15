@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Net;
 
 namespace AspCacheRedis
 {
@@ -8,22 +7,20 @@ namespace AspCacheRedis
         protected void Page_Load(object sender, EventArgs e)
         {
             Cache.ICacheProvider cache = new Cache.HttpCache();
-            cache.Set("key1","Hello!");
+            cache.Set("key1", "Hello from System.Web.Caching.Cache");
             str1.InnerHtml = cache.Get<string>("key1");
 
             Cache.ICacheProvider cacheManagerCache = new Cache.CacheManagerCache();
-            cacheManagerCache.Set("key2","Hello2!");
+            cacheManagerCache.Set("key2", "Hello from Redis through CacheManagerCache!");
             str2.InnerHtml = cacheManagerCache.Get<string>("key2");
 
             cacheManagerCache.Set("key3", new Widget());
 
-            Session["cache"] = "Cache in Redis!";
+            Session["cache"] = "Session is in Redis!";
             str3.InnerHtml = Session["cache"].ToString();
 
             Session["widget"] = new Widget {Number = 99, Name = "Test99"};
-
-            var client = new WebClient();
-            str4.InnerHtml = client.DownloadString("http://localhost:8080/api/Cache");
+            str4.InnerHtml = "Non serilazable item is in session " + ((Widget) Session["widget"]).Name;
         }
     }
 

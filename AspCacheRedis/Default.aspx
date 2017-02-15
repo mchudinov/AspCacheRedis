@@ -14,9 +14,6 @@
                 <label id="str3" runat="server"></label>
                 <br/>
                 <label id="str4" runat="server"></label>
-                <br/>
-                Refresh page to call WebAPI.
-                <br/>
             </div>
         </form>
     </body>
