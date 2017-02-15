@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Net;
-using System.Net.Http;
 
 namespace AspCacheRedis
 {
@@ -16,7 +15,7 @@ namespace AspCacheRedis
             cacheManagerCache.Set("key2","Hello2!");
             str2.InnerHtml = cacheManagerCache.Get<string>("key2");
 
-            //cacheManagerCache.Set("key3", new Widget());
+            cacheManagerCache.Set("key3", new Widget());
 
             Session["cache"] = "Cache in Redis!";
             str3.InnerHtml = Session["cache"].ToString();
