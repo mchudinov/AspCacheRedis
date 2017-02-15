@@ -18,6 +18,8 @@ namespace WebApiSelfHost
             var cache = new WebApiCache();
             config.CacheOutputConfiguration().RegisterCacheOutputProvider(() => cache);
 
+            config.CacheOutputConfiguration().RegisterDefaultCacheKeyGeneratorProvider(() => new CustomCacheKeyGenerator());
+
             app.UseWebApi(config);
         }
     }
