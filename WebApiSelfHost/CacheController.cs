@@ -6,7 +6,7 @@ using WebApi.OutputCache.V2;
 namespace WebApiSelfHost
 {
     [AutoInvalidateCacheOutput]
-    [CacheOutput(ServerTimeSpan = 30)]
+    [CacheOutput(ServerTimeSpan = 60)]
     public class CacheController : ApiController
     {
         // GET api/cache         
@@ -16,8 +16,7 @@ namespace WebApiSelfHost
             return new [] { "value1", "value2" };
         }
 
-        [HttpPost]
-        public void Post(string str)
+        public void Post(object obj)
         {
             //
         }
