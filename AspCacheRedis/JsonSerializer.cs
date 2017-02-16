@@ -1,7 +1,7 @@
 ﻿using System.Text;
 using Newtonsoft.Json;
 
-namespace Cache
+namespace AspCacheRedis
 {
     public class JsonSerializer : Microsoft.Web.Redis.ISerializer
     {
