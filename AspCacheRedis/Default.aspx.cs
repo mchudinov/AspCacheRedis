@@ -6,8 +6,8 @@ namespace AspCacheRedis
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Cache.ICacheProvider cacheManagerCache = new Cache.CacheManagerCache();
-            cacheManagerCache.Set("key1", "Hello from Redis through CacheManagerCache!");
+            Cache.ICache cacheManagerCache = new Cache.CacheManagerProvider();
+            cacheManagerCache.Set("key1", "Hello from Redis through CacheManagerProvider!");
             str2.InnerHtml = cacheManagerCache.Get<string>("key1");
 
             cacheManagerCache.Set("key2", new Widget());

@@ -2,7 +2,7 @@
 
 namespace Cache
 {
-    public interface ICacheProvider
+    public interface ICache
     {
         /// <summary>
         /// Retrieve cached item
@@ -37,7 +37,7 @@ namespace Cache
         /// <typeparam name="T">Type of cached item</typeparam>
         /// <param name="key">Item to be cached</param>
         /// <param name="value">Name of item</param>
-        /// <param name="duration">Cache duration in minutes with absolute expiration</param>
+        /// <param name="duration">CacheProviderBase duration in minutes with absolute expiration</param>
         void Set<T>(string key, T value, int duration);
 
         /// <summary>
@@ -47,7 +47,7 @@ namespace Cache
         /// <typeparam name="T">Type of cached item</typeparam>
         /// <param name="key">Item to be cached</param>
         /// <param name="value">Name of item</param>
-        /// <param name="duration">Cache duration in minutes with sliding expiration</param>
+        /// <param name="duration">CacheProviderBase duration in minutes with sliding expiration</param>
         void SetSliding<T>(string key, T value, int duration);
 
         /// <summary>
@@ -57,7 +57,7 @@ namespace Cache
         /// <typeparam name="T">Type of cached item</typeparam>
         /// <param name="key">Item to be cached</param>
         /// <param name="value">Name of item</param>
-        /// <param name="expiration">Cache expiration time with absolute expiration</param>
+        /// <param name="expiration">CacheProviderBase expiration time with absolute expiration</param>
         void Set<T>(string key, T value, DateTimeOffset expiration);
 
         /// <summary>
