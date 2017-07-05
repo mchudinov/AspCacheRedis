@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace AspCacheRedis
 {
@@ -11,6 +13,11 @@ namespace AspCacheRedis
             str2.InnerHtml = cacheManagerCache.Get<string>("key1");
 
             cacheManagerCache.Set("key2", new Widget());
+
+            cacheManagerCache.Set("hashset", new HashSet<string>());
+            var hashset = cacheManagerCache.Get<HashSet<string>>("hashset");
+            hashset?.Add("Added value");
+            cacheManagerCache.Set("hashset", hashset);
 
             Session["cache"] = "Session is in Redis!";
             str3.InnerHtml = Session["cache"].ToString();
