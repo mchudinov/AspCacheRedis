@@ -14,17 +14,7 @@ namespace AspCacheRedis
             Cache.ICache cacheManagerCache = new Cache.CacheManagerProvider();
 
 
-            var temp = AccessTheWebAsync(); //;
-
-            if (temp.GetType().IsGenericType)
-            {
-                var tt = temp.ConfigureAwait(false);
-                Debug.Print("generic!");                
-                //var t = tt.GetAwaiter().GetResult();
-                var ttt = temp.Result;
-                //Debug.Print(t.ToString());
-            }
-
+            var task = DoWork(); //;
 
             cacheManagerCache.Set("key1", "Hello from Redis through CacheManagerProvider!");
             str2.InnerHtml = cacheManagerCache.Get<string>("key1");
@@ -43,34 +33,16 @@ namespace AspCacheRedis
             str4.InnerHtml = "Non serilazable item is in session " + ((Widget) Session["widget"]).Name;
         }
 
-
         private static async Task<int> AccessTheWebAsync()
         {
-            // You need to add a reference to System.Net.Http to declare client.
             HttpClient client = new HttpClient();
-
-            // GetStringAsync returns a Task<string>. That means that when you await the
-            // task you'll get a string (urlContents).
-            //Task<string> getStringTask = client.GetStringAsync("http://ya.ru");
-
-            string urlContents = await client.GetStringAsync("http://ya.ru");
-            
-            // The return statement specifies an integer result.
-            // Any methods that are awaiting AccessTheWebAsync retrieve the length value.
+            string urlContents = await client.GetStringAsync("http://ya.ru");          
             return urlContents.Length;
         }
 
-
-        private static async Task<int> DoWork()
+        private static Task<int> DoWork()
         {
-            var function = new Func<int>(() => GetSum(4, 5));
-            var res = await Task.Run<int>(function);
-            return res;
-        }
-
-        private static int GetSum(int a, int b)
-        {
-            return a + b;
+            return Task.Run<int>(() => 999);
         }
     }
 
